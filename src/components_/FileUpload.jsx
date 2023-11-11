@@ -1,5 +1,5 @@
 export default function FileUpload({
-  name,
+  name = "file-upload",
   onChange,
   extractContent = false,
   fileInputProps = {},

@@ -2,7 +2,11 @@ import { extractRoutesFromURL } from "../utils_/common";
 import { parseXSPF } from "../utils_/xspf";
 import FileUpload from "./FileUpload";
 
-export default function PlayListUpload({ list = [], setList = () => {} }) {
+export default function PlayListUpload({
+  name = "",
+  list = [],
+  setList = () => {},
+}) {
   const onChangeHandler = (event) => {
     const filesWithContent = event.target.files;
     const filesWithTracks = filesWithContent.map((file) => {
@@ -20,7 +24,12 @@ export default function PlayListUpload({ list = [], setList = () => {} }) {
   return (
     <div>
       Playlist upload
-      <FileUpload onChange={onChangeHandler} value={list} extractContent />
+      <FileUpload
+        name={name}
+        onChange={onChangeHandler}
+        value={list}
+        extractContent
+      />
       <div aria-label="playlist-upload-files-preview">
         {list.length > 0 && (
           <div>
